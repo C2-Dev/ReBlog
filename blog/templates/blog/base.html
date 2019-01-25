@@ -1,32 +1,37 @@
 {% load static %}
 <html>
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-lime.min.css"/>
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-<link rel="stylesheet" type="text/css" href="{% static 'tracker/style.css' %}">
-
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="padding-left: 0px;">
-  <header class="mdl-layout__header" style="padding-left: 0px;">
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs mdl-layout--no-desktop-drawer-button">
+  <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title"><img src="{% static "blog/images/reblog.png" %}" alt="Reblog Icon"></span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="{% url 'index' %}">Index</a>
-      </nav>
+        <!-- Title -->
+        <span class="mdl-layout-title"><img class="logo" src="{% static "blog/images/reblog.png" %}" alt="reBlog Logo"></span>
+    </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#fixed-tab-1" class="mdl-layout__tab"><i class="material-icons">repeat</i></a>
+      <a href="#fixed-tab-2" class="mdl-layout__tab is-active"><i class="material-icons">trending_up</i></a>
+      <a href="#fixed-tab-3" class="mdl-layout__tab"><i class="material-icons">loyalty</i></a>
     </div>
   </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Menu</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="{% url 'index' %}">Index</a>
-    </nav>
+  <div class="mdl-layout__drawer mdl-layout--large-screen-only">
+    <span class="mdl-layout-title">Title</span>
   </div>
   <main class="mdl-layout__content">
-    <div class="page-content">
-      {% block content %}
-      {% endblock %}
-    </div>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-1">
+      <div class="page-content"><!-- Your content goes here --><h4><strong>Start a reBlog</strong></div>
+    </section>
+    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-2">
+      <div class="page-content"><!-- Your content goes here --><h4><strong>Trending Blogs</strong></h4></div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+      <div class="page-content"><!-- Your content goes here --><h4><strong>Interactions</strong></h4></div>
+    </section>
   </main>
 </div>
 <html>
