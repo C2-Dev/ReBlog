@@ -8,8 +8,10 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
             mdl-layout--fixed-tabs mdl-layout--no-desktop-drawer-button">
   <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-        <!-- Title -->
+    <!-- Small Screen Menu -->
+    <span class="mdl-layout-title mdl-layout--small-screen-only"><img class="logo" src="{% static "blog/images/reblogsmall.png" %}" alt="reBlog Logo"></span>
+    <div class="mdl-layout__header-row mdl-layout--large-screen-only">
+        <!-- Large Screen Title -->
         <span class="mdl-layout-title"><img class="logo" src="{% static "blog/images/reblog.png" %}" alt="reBlog Logo"></span>
     </div>
     <!-- Tabs -->
