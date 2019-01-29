@@ -26,13 +26,13 @@
   </div>
   <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel" id="fixed-tab-1">
-      <div class="page-content"><!-- Your content goes here --><h4><strong>Start a reBlog</strong></div>
+      <div class="page-content-tab-1">{% block tab1 %}<h4><strong>Start a reBlog</strong>{% endblock %}</div>
     </section>
     <section class="mdl-layout__tab-panel is-active" id="fixed-tab-2">
-      <div class="page-content"><!-- Your content goes here --><h4><strong>Trending Blogs</strong></h4></div>
+      <div class="page-content-tab-2">{% block tab2 %}<h4><strong>Trending</strong>{% endblock %}</div>
     </section>
     <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-      <div class="page-content"><!-- Your content goes here --><h4><strong>Interactions</strong></h4></div>
+      <div class="page-content-tab-3">{% block tab3 %}<h4><strong>Interactions</strong></h4>{% endblock %}</div>
     </section>
   </main>
 </div>
