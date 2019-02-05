@@ -15,16 +15,16 @@ class Tag(models.Model):
                 return self.name
 
 class TweetThread(models.Model):
-        tweet = models.URLField()
+        tweet = models.URLField(unique='true')
 
 class Post(models.Model):
-        author = models.OneToOneField(User, related_name='author', on_delete=models.CASCADE)
+        author = models.ForeignKey(User, related_name='author', on_delete=models.CASCADE)
         category = models.ManyToManyField(Category)
         #title = models.CharField(max_length=64,unique=True)
         tweet = models.ForeignKey(TweetThread, related_name='ptweet', on_delete=models.CASCADE)
         #symbol = models.CharField(max_length=2)
         tags = models.ManyToManyField(Tag)
-        views = models.PositiveIntegerField(default=0)
+        views = models.PositiveIntegerField(default=0, db_index=True)
         #byline = models.CharField(max_length=255)
         #background_image = models.URLField(verify_exists=True)
         slug = models.SlugField(max_length=128)
@@ -38,7 +38,7 @@ class Post(models.Model):
         date_hierarchy = 'created_on'
 
         def __str__(self):
-                return self.id
+                return str(self.id)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)

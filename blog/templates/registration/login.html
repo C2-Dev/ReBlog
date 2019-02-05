@@ -1,10 +1,10 @@
-{% block title %}Login{% endblock %}
+{% extends 'blog/base.html' %}
 
-{% block content %}
+{% block tab2 %}
   <h2>Login</h2>
-  <form method="post">
+  <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">Login</button>
   </form>
 {% endblock %}

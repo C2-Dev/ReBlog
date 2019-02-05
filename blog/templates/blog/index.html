@@ -1,46 +1,38 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block tab1 %}
+<span></span>
 <div id ="mycard">
-
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">New Post</h2>
   </div>
-
-
   <div class="mdl-card__supporting-text">
    Get ready to reBlog!!!!
     <form action="#">
-
-      <div id="cat-tags">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="cat">
-    <label class="mdl-textfield__label" for="sample3">Post Category</label>
-  </div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="tag">
-    <label class="mdl-textfield__label" for="sample3">Post Tags</label>
-  </div>
+          <div id="cat-tags">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="cat">
+        <label class="mdl-textfield__label" for="sample3">Post Category</label>
       </div>
-
-      <div id ="post">
-      <div id="post-content">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="content">
-    <label class="mdl-textfield__label" for="sample2">Post</label>
-  </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="tag">
+        <label class="mdl-textfield__label" for="sample3">Post Tags</label>
       </div>
+          </div>
 
+          <div id ="post">
+          <div id="post-content">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <textarea class="mdl-textfield__input" type="text" rows =  "5" id="content"></textarea>
+        <label class="mdl-textfield__label" for="sample2">Post</label>
       </div>
-</form>
-  </div>
+          </div>
 
-
-
-
+          </div>
+    </form>
+    </div>
 </div>
-
   <!-- FAB button with ripple -->
   <div id="next">
 <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
@@ -49,7 +41,43 @@
   </div>
 </div>
 {% endblock %}
+
 {% block tab2 %}
+<style>
+    .mdl-card {}
+    .mdl-card>.mdl-card__title {
+        color: #fff;
+        background: url("{{ user.profile.banner_url }}") center / cover;
+    }
+    .mdl-card>.mdl-card__media>.avatar {
+        width: 94%;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10%;
+    }
+</style>
+<br>
+{% for x in top_posts %}
+    <div class="mdl-grid">
+        <div class="mdl-cell--3-col">
+            <div class="mdl-card mdl-shadow--4dp">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">{{ x.author }}</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    {{ x.content }}<br>
+                </div>
+                <div class="mdl-card__actions">
+                    <a href="{% url 'post_new' %}">reply</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
+
+{% block tab3 %}
 <style>
     .mdl-card {}
     .mdl-card>.mdl-card__title {

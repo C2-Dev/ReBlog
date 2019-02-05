@@ -1,15 +1,16 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .forms import PostForm, ProfileForm
+from .models import Post
 from datetime import date, timedelta
 from django.utils import timezone
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, 'blog/index.html')
+        top_posts = Post.objects.all()
+        return render(request, 'blog/index.html', {'top_posts': top_posts})
     else:
         return redirect('login')
-
 
 def post_new(request):
     if request.method == "POST":
