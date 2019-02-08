@@ -1,8 +1,8 @@
 # ReBlog
-When a RT isn't enough. reBlog allows users to start discussions about tweets without the restrcition of character limits. New blog threads can be created with tweet urls so the OP is never lost in the conversation. Tweet or RT with links to your ReBlog thread or to replies etc.
+When a RT isn't enough. reBlog allows users to start discussions about tweets without the restrcition of character limits. New blog threads can be created with tweet urls so the OP is never lost in the conversation. Tweet or RT with links to your ReBlog thread or to replies etc. :fa-retweet:
 
 ===================
-reBlog :fas-retweet:
+reBlog
 ===================
 
 .. image:: https://travis-ci.org/django-crispy-forms/django-crispy-forms.png?branch=dev
