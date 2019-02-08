@@ -2,9 +2,12 @@ from django import forms
 from .models import Post, Profile
 
 class PostForm(forms.ModelForm):
+    tweet = forms.URLField()
+    content = forms.CharField(widget=forms.Textarea)
+
     class Meta:
         model = Post
-        fields = ('category', 'tags', 'content')
+        fields = ('tweet', 'content')
 
 class ProfileForm(forms.ModelForm):
     class Meta:

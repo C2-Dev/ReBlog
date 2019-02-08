@@ -1,50 +1,36 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/index.html' %}
+{% block tab1hi %}is-active{% endblock %}
+{% block tab1act %}is-active{% endblock %}
 {% block tab1 %}
-<div id ="mycard">
-
-<div class="demo-card-wide mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">New Post</h2>
-  </div>
-
-
-  <div class="mdl-card__supporting-text">
-   Get ready to reBlog!!!!
-    <form action="#">
-
-      <div id="cat-tags">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="cat">
-    <label class="mdl-textfield__label" for="sample3">Post Category</label>
-  </div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="tag">
-    <label class="mdl-textfield__label" for="sample3">Post Tags</label>
-  </div>
-      </div>
-
-      <div id ="post">
-      <div id="post-content">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="content">
-    <label class="mdl-textfield__label" for="sample2">Post</label>
-  </div>
-      </div>
-
-      </div>
-</form>
-  </div>
-
-
-
-
-</div>
-
-  <!-- FAB button with ripple -->
-  <div id="next">
-<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-  <i class="material-icons">repeat</i>
-</button>
-  </div>
+<div class="mdl-grid">
+    <div class="mdl-cell--3-col">
+        <div class="mdl-card mdl-shadow--4dp">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">New Post</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <form id="PostForm" method="post" action="{% url 'post_new' %}">
+                    {% csrf_token %}
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="id_{{ form.catagory.name }}" name="{{ form.catagory.name }}" value="{{ form.catagory.value }}" required>
+                    <label class="mdl-textfield__label" for="id_{{ form.catagory.name }}">Post Category</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="id_{{ form.tags.name }}" name="{{ form.tags.name }}" value="{{ form.tags.value }}" required>
+                    <label class="mdl-textfield__label" for="id_{{ form.tags.name }}">Post Tags</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <textarea class="mdl-textfield__input" type="text" rows ="5" id="id_{{ form.content.name }}" name="{{ form.content.name }}" value="{{ form.content.value }}" required></textarea>
+                    <label class="mdl-textfield__label" for="id_{{ form.content.name }}">Post</label>
+                  </div>
+                  <div id="next">
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" type="submit">
+                      <i class="material-icons">repeat</i>
+                    </button>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -1,51 +1,40 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.http import HttpResponse
 from .forms import PostForm, ProfileForm
 from .models import Post
 from datetime import date, timedelta
 from django.utils import timezone
+#import requests
 
-def index(request):
+def tab1(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            form = PostForm(request.POST)
+            if form.is_valid():
+                entry = form.save(commit=False)
+                entry.author = request.user
+                entry.save()
+                return redirect('tab2')
+            else:
+                print(form.errors)
+        else:
+            form = PostForm()
+            return render(request, 'blog/tab1.html', {'form': form})
+    else:
+        return redirect('login')
+
+def tab2(request):
     if request.user.is_authenticated:
         top_posts = Post.objects.all()
-        return render(request, 'blog/index.html', {'top_posts': top_posts})
+        #response = requests.get('https://publish.twitter.com/oembed?url=https://twitter.com/FOX13News/status/1090261623367917568')
+        #rt = response.json()
+        return render(request, 'blog/tab2.html', {'top_posts': top_posts})
     else:
         return redirect('login')
 
-def post_new(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            if request.user.is_authenticated:
-                post = form.save(commit=False)
-                post.created_on = timezone.now()
-                post.author = request.user
-                post.save()
-                return redirect('..')
-            else:
-                return redirect('login')
-    else:
-        form = PostForm()
-        return render(request, 'blog/post_new.html', {'form': form})
-
-def profile(request):
+def tab3(request):
     if request.user.is_authenticated:
-        return render(request, 'blog/profile.html')
+        return render(request, 'blog/tab3.html')
     else:
         return redirect('login')
-
-
-def update_profile(request):
-    if request.method == 'POST':
-        if request.user.is_authenticated:
-            profile_form = ProfileForm(request.POST, instance=request.user.profile)
-            if profile_form.is_valid():
-                profile = profile_form.save(commit=False)
-                profile.user = request.user
-                profile.save()
-                return redirect('profile')
-    else:
-        profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, 'blog/update_profile.html', {
-        'profile_form': profile_form
-    })

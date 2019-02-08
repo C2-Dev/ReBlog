@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+<meta name="twitter:widgets:theme" content="light">
+<meta name="twitter:widgets:link-color" content="#55acee">
+<meta name="twitter:widgets:border-color" content="#55acee">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
             mdl-layout--fixed-tabs mdl-layout--no-desktop-drawer-button">
   <header class="mdl-layout__header">
@@ -16,22 +19,22 @@
     </div>
     <!-- Tabs -->
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-      <a href="#fixed-tab-1" class="mdl-layout__tab"><i class="material-icons">repeat</i></a>
-      <a href="#fixed-tab-2" class="mdl-layout__tab is-active"><i class="material-icons">trending_up</i></a>
-      <a href="#fixed-tab-3" class="mdl-layout__tab"><i class="material-icons">loyalty</i></a>
+      <a href="{% url 'tab1' %}" class="mdl-layout__tab {% block tab1hi %}{% endblock %}"><i class="material-icons">repeat</i></a>
+      <a href="{% url 'tab2' %}" class="mdl-layout__tab {% block tab2hi %}{% endblock %}"><i class="material-icons">trending_up</i></a>
+      <a href="{% url 'tab3' %}" class="mdl-layout__tab {% block tab3hi %}{% endblock %}"><i class="material-icons">loyalty</i></a>
     </div>
   </header>
   <div class="mdl-layout__drawer mdl-layout--large-screen-only">
     <span class="mdl-layout-title">Title</span>
   </div>
   <main class="mdl-layout__content">
-    <section class="mdl-layout__tab-panel" id="fixed-tab-1">
+    <section class="mdl-layout__tab-panel {% block tab1act %}{% endblock %}" id="fixed-tab-1">
       <div class="page-content-tab-1">{% block tab1 %}<h4><strong>Start a reBlog</strong>{% endblock %}</div>
     </section>
-    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-2">
+    <section class="mdl-layout__tab-panel {% block tab2act %}{% endblock %}" id="fixed-tab-2">
       <div class="page-content-tab-2">{% block tab2 %}<h4><strong>Trending</strong>{% endblock %}</div>
     </section>
-    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+    <section class="mdl-layout__tab-panel {% block tab3act %}{% endblock %}" id="fixed-tab-3">
       <div class="page-content-tab-3">{% block tab3 %}<h4><strong>Interactions</strong></h4>{% endblock %}</div>
     </section>
   </main>

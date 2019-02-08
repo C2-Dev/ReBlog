@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block tab2hi %}is-active{% endblock %}
+{% block tab2act %}is-active{% endblock %}
+
+{% block tab2 %}
+<style>
+    .mdl-card {}
+    .mdl-card>.mdl-card__title {
+        color: #fff;
+        background: url("{{ user.profile.banner_url }}") center / cover;
+    }
+    .mdl-card>.mdl-card__media>.avatar {
+        width: 94%;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10%;
+    }
+</style>
+<br>
+<div class="mdl-grid">
+    {% for x in top_posts %}
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <div class="mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">{{ x.author }}</h2>
+                    </div>
+                    <div class="mdl-card__media">
+                        <blockquote class="twitter-tweet" data-lang="en"><p class= "tweetcon" lang="en" dir="ltr">ALERT: Band room at Wesley Chapel High School evacuated due to smoke, spokesperson says.</p>&mdash; FOX 13 Tampa Bay (@FOX13News) <a href="https://twitter.com/FOX13News/status/1090261623367917568?ref_src=twsrc%5Etfw">January 29, 2019</a></blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        {{ x.content }}<br>
+                    </div>
+                    <div class="mdl-card__actions">
+                        <a href="{% url 'tab1' %}">reply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
