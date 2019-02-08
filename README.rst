@@ -1,8 +1,9 @@
 ===================
+reBlog
+===================
 .. image:: http://crobert8.pythonanywhere.com/static/blog/images/reblogsmall.png
    :alt: reBlog Logo
-   :target: http://crobert8.pythonanywhere.com reBlog
-===================
+   :target: http://crobert8.pythonanywhere.com
 
 When a RT isn't enough. reBlog allows users to start discussions about tweets without the restrcition of character limits. New blog threads can be created with tweet urls so the OP is never lost in the conversation. Tweet or RT with links to your ReBlog thread or to replies etc.
 
