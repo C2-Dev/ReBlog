@@ -1,5 +1,5 @@
 ===================
-reBlog :repeat:
+:repeat: reBlog
 ===================
 
 When a RT isn't enough. reBlog allows users to start discussions about tweets without the restrcition of character limits. New blog threads can be created with tweet urls so the OP is never lost in the conversation. Tweet or RT with links to your ReBlog thread or to replies etc.
