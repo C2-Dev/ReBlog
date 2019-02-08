@@ -5,7 +5,6 @@ from .forms import PostForm, ProfileForm
 from .models import Post
 from datetime import date, timedelta
 from django.utils import timezone
-#import requests
 
 def tab1(request):
     if request.user.is_authenticated:
@@ -27,8 +26,6 @@ def tab1(request):
 def tab2(request):
     if request.user.is_authenticated:
         top_posts = Post.objects.all()
-        #response = requests.get('https://publish.twitter.com/oembed?url=https://twitter.com/FOX13News/status/1090261623367917568')
-        #rt = response.json()
         return render(request, 'blog/tab2.html', {'top_posts': top_posts})
     else:
         return redirect('login')
