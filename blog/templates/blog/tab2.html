@@ -18,6 +18,13 @@
         margin-right: auto;
         border-radius: 10%;
     }
+    .mdl-chip {
+    height: auto;
+    white-space: normal;
+    }
+    .mdl-chip__text {
+
+    }
 </style>
 <br>
 <div class="mdl-grid">
@@ -33,7 +40,9 @@
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        {{ x.content }}<br>
+                        <span class="mdl-chip">
+                            <span class="mdl-chip__text">{{ x.content }}</span>
+                        </span>
                     </div>
                     <div class="mdl-card__actions">
                         <a href="{% url 'tab1' %}">reply</a>
