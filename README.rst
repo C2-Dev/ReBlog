@@ -2,7 +2,7 @@
 When a RT isn't enough. reBlog allows users to start discussions about tweets without the restrcition of character limits. New blog threads can be created with tweet urls so the OP is never lost in the conversation. Tweet or RT with links to your ReBlog thread or to replies etc.
 
 ===================
-django-crispy-forms
+reBlog :fa-retweet:
 ===================
 
 .. image:: https://travis-ci.org/django-crispy-forms/django-crispy-forms.png?branch=dev
@@ -12,20 +12,9 @@ django-crispy-forms
 .. image:: http://codecov.io/github/django-crispy-forms/django-crispy-forms/coverage.svg?branch=master
    :target: http://codecov.io/github/django-crispy-forms/django-crispy-forms?branch=master
 
-The best way to have Django_ DRY forms. Build programmatic reusable layouts out of components, having full control of the rendered HTML without writing HTML in templates. All this without breaking the standard way of doing things in Django, so it plays nice with any other form application.
+When a RT isn't enough. reBlog allows users to start discussions about tweets without the restrcition of character limits. New blog threads can be created with tweet urls so the OP is never lost in the conversation. Tweet or RT with links to your ReBlog thread or to replies etc.
 
-`django-crispy-forms` supports Python 2.7/Python 3.3+ and Django 1.8/Django 1.10+
-
-The application mainly provides:
-
-* A filter named ``|crispy`` that will render elegant div based forms. Think of it as the built-in methods: ``as_table``, ``as_ul`` and ``as_p``. You cannot tune up the output, but it is easy to start using it.
-* A tag named ``{% crispy %}`` that will render a form based on your configuration and specific layout setup. This gives you amazing power without much hassle, helping you save tons of time.
-
-Django-crispy-forms supports several frontend frameworks, such as Twitter `Bootstrap`_ (versions 2, 3, and 4), `Uni-form`_ and Foundation. You can also easily adapt your custom company's one, creating your own, `see the docs`_ for more information. You can easily switch among them using ``CRISPY_TEMPLATE_PACK`` setting variable.
-
-.. _`Uni-form`: http://sprawsm.com/uni-form
-.. _`Bootstrap`: https://getbootstrap.com
-.. _`see the docs`: https://django-crispy-forms.readthedocs.io
+`reBlog` was built with Python 3.7 and Django 2.2
 
 Authors
 =======
